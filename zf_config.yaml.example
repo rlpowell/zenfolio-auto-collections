@@ -1,0 +1,40 @@
+email: you@mail.com
+password: hunter2
+portabble_photos_dir: '/home/me/portable_pics'
+# To get a list of names of things to add things here, use:
+#
+# ./run.sh list_all.rb
+collections:
+  - name: 'Twin Pictures And Videos, 6 Mos - 1 Yr'
+    parent_tree: [ 'Collections', 'Twin Pictures And Videos, In Six Month Chunks' ]
+    photosets:
+      - parent_tree: [ 'Public', 'K_Or_F_Raw' ]
+        regex: '(K_Or_F_2012-0[5-9]|K_Or_F_2012-10)'
+    portable_photos:
+       name: 'kf-0_6-1_0'
+       keywords_all: [ 'rlp_favorites' ]
+  - name: 'Everything, Ordered By Upload Date'
+    parent_tree: [ 'Collections' ]
+    photosets:
+      - parent_tree: [ 'Public' ]
+  # Make collection of just the rlp_favorites
+  - name: "Robin's Favorites, Ordered by Picture Date"
+    parent_tree: [ 'Collections' ]
+    photosets:
+      - parent_tree: [ 'Public', 'K_Or_F_Raw' ]
+    photos:
+      - keywords_all: [ 'rlp_favorites' ]
+    portable_photos:
+      name: 'rlp_favorites'
+  # Special collections for late additions, since keyword search is busted (as of Jan 2023; ETA "months" per support)
+  - name: Added 2022-12
+    parent_tree: [ 'Collections' ]
+    photosets:
+      - parent_tree: [ 'Public', 'K_Or_F_Raw' ]
+    photos:
+      # Finds photos that match all of the given keywords
+      - keywords_all: [ 'added_2022_12' ]
+photoset_cleanup:
+  - parent_tree: [ 'Public', 'K_Or_F_Raw' ]
+    # Possible values come from https://www.zenfolio.com/zf/help/api/ref/objects/shiftorder
+    reorder: FileNameAsc
